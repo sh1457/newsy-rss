@@ -1,13 +1,57 @@
 <html>
 <head>
+<link rel="stylesheet" href="./css/mdl/material.min.css">
+<script src="./css/mdl/material.min.js"></script>
+<link rel="stylesheet" href="./css/material-icons.css">
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.jfeed.js"></script>
+<script>
+jQuery(document).ready(function() {
+    jQuery.getFeed({
+        url: '../feed/eureka.xml',
+        success: function(feed) {
+            for(var i = 0; i < feed.items.length && i < 5; i++) {
+                var item = feed.items[i];
+                $("div#feed").append("<div><a href='"+item.link+"'>"+item.title+"</a></div>");
+            }
+        }
+    });
+});
+</script>
 
 </head>
 
 <body>
-<p>This works!!</p>
-<br>
-<p>This also works!!</p>
-<a href='www.google.com'>GOOGLE</a>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">NEWSy</span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Local</a>
+      <a href="#fixed-tab-2" class="mdl-layout__tab">Global</a>
+      
+    </div>
+  </header>
+  
+  <main class="mdl-layout__content">
+    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+      <div class="page-content"><!-- Your content goes here -->
+      	<div id="feed">
+		</div>
+      </div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+      <div class="page-content"><!-- Your content goes here --></div>
+    </section>
+
+  </main>
+</div>
+<div id="feed">
+</div>
 </body>
 
 </html>
