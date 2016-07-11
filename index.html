@@ -12,12 +12,25 @@ jQuery(document).ready(function() {
         success: function(feed) {
             for(var i = 0; i < feed.items.length && i < 15; i++) {
                 var item = feed.items[i];
-                $("div#feed").append("<div><a href='"+item.link+"'>"+item.title+"</a></div>");
+                $("div#feed").append("<div class='demo-card-wide mdl-card mdl-shadow--2dp'><div class='mdl-card__supporting-text'>"+item.title+"</div><div class='mdl-card__actions mdl-card--border'><a href='"+item.link+"' class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect'>Read</a></div><div class='mdl-card__menu'><button class='mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect'><i class='material-icons'>share</i></button></div></div>");
             }
         }
     });
 });
 </script>
+<style>
+.demo-card-wide.mdl-card {
+  width: 100%;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../assets/demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
 
 </head>
 
@@ -42,6 +55,7 @@ jQuery(document).ready(function() {
       <div class="page-content"><!-- Your content goes here -->
       	<div id="feed">
 		</div>
+		
       </div>
     </section>
     <section class="mdl-layout__tab-panel" id="fixed-tab-2">
