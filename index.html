@@ -10,7 +10,7 @@ jQuery(document).ready(function() {
     jQuery.getFeed({
         url: '../newsy-rss/feed/eureka.xml',
         success: function(feed) {
-            for(var i = 0; i < feed.items.length && i < 5; i++) {
+            for(var i = 0; i < feed.items.length && i < 15; i++) {
                 var item = feed.items[i];
                 $("div#feed").append("<div><a href='"+item.link+"'>"+item.title+"</a></div>");
             }
