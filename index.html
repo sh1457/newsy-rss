@@ -8,7 +8,7 @@
 <script>
 jQuery(document).ready(function() {
     jQuery.getFeed({
-        url: '../feed/eureka.xml',
+        url: '../newsy-rss/feed/eureka.xml',
         success: function(feed) {
             for(var i = 0; i < feed.items.length && i < 5; i++) {
                 var item = feed.items[i];
